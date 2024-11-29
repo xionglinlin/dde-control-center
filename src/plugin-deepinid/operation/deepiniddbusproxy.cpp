@@ -26,6 +26,11 @@ QDBusReply<QString> DeepinidDBusProxy::localBindCheck(const QString &uuid)
     return m_deepinId->call(QDBus::BlockWithGui, "LocalBindCheck", uuid);
 }
 
+QDBusReply<QString> DeepinidDBusProxy::meteInfo()
+{
+    return m_deepinId->call("MeteInfo");
+}
+
 QVariantMap DeepinidDBusProxy::userInfo()
 {
     return m_deepinId->property("UserInfo").toMap();

@@ -9,14 +9,17 @@
 
 DCORE_USE_NAMESPACE
 
+// com.deepin.deepinid 主要是用于登陆登出，和账户信息相关
 #define DEEPINID_SERVICE   QStringLiteral("com.deepin.deepinid")
 #define DEEPINID_PATH      QStringLiteral("/com/deepin/deepinid")
 #define DEEPINID_INTERFACE QStringLiteral("com.deepin.deepinid")
 
+// com.deepin.sync.Daemon 主要是用于dde系统设置同步
 #define SYNC_SERVICE   QStringLiteral("com.deepin.sync.Daemon")
 #define SYNC_INTERFACE QStringLiteral("com.deepin.sync.Daemon")
 #define SYNC_PATH      QStringLiteral("/com/deepin/sync/Daemon")
 
+// com.deepin.sync.Daemon 主要是用于应用数据同步（例如：日历、浏览器...）
 #define UTCLOUD_PATH      QStringLiteral("/com/deepin/utcloud/Daemon")
 #define UTCLOUD_INTERFACE QStringLiteral("com.deepin.utcloud.Daemon")
 
@@ -33,5 +36,17 @@ const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition); // 
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);                 // 是否是个人版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType()); // 是否是Deepin桌面
 
+
+enum SyncType {
+    Sound,
+    Theme,
+    Power,
+    Network,
+    Mouse,
+    Update,
+    Dock,
+    Launcher,
+    Wallpaper
+};
 
 #endif // UTILS_H

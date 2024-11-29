@@ -15,11 +15,11 @@ DccObject {
         contentItem: dccObj.children.length > 0 ? dccObj.children[0].getSectionItem(control) : null
     }
 
-    LoginPage {
+    DeepinIDLogin {
         visible: !dccData.model.loginState
     }
 
-    UserInfo {
+    DeepinIDUserInfo {
         visible: dccData.model.loginState
     }
 }
