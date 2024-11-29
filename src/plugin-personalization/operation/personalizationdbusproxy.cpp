@@ -36,7 +36,7 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     , m_WMSwitcherInter(new QDBusInterface(WMSwitcherService, WMSwitcherPath, WMSwitcherInterface, QDBusConnection::sessionBus(), this))
 
 {
-    if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
+    if (1) {
         m_WMInter = new QDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
         m_EffectsInter = new QDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
         connect(m_WMSwitcherInter, SIGNAL(WMChanged(const QString &)), this, SIGNAL(WMChanged(const QString &)));

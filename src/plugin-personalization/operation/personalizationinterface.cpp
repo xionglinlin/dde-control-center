@@ -120,7 +120,7 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
 , m_iconThemeViewModel(new ThemeVieweModel(this))
 , m_cursorThemeViewModel(new ThemeVieweModel(this))
 {
-    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
+    if (1) {
         m_work = new TreeLandWorker(m_model, this);
     } else {
         m_work = new X11Worker(m_model, this);
