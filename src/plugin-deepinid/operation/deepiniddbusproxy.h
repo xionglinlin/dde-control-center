@@ -23,6 +23,7 @@ public:
     void logout() const;
 
     QDBusReply<QString> localBindCheck(const QString &uuid);
+    QDBusReply<QString> meteInfo();
     QVariantMap userInfo();
 
 signals:
