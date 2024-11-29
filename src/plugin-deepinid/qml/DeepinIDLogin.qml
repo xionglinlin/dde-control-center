@@ -51,7 +51,7 @@ DccObject {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 fillMode: Image.Pad
-                clip: true                
+                clip: true
                 source: "qrc:/icons/deepin/builtin/icons/dcc_login_bg.svg"
             }
 

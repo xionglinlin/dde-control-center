@@ -34,19 +34,19 @@ void registerIntStringMetaType()
 
 SyncDBusProxy::SyncDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_syncInner(new DDBusInterface(SYNC_SERVICE, SYNC_PATH, SYNC_INTERFACE, QDBusConnection::sessionBus(), this))
+    , m_syncInter(new DDBusInterface(SYNC_SERVICE, SYNC_PATH, SYNC_INTERFACE, QDBusConnection::sessionBus(), this))
 {
     registerIntStringMetaType();
 }
 
-void SyncDBusProxy::switcherSet(const QString &arg_0, bool state)
+void SyncDBusProxy::SwitcherSet(const QString &arg_0, bool state)
 {
-    m_syncInner->asyncCallWithArgumentList("SwitcherSet", { arg_0, state });
+    m_syncInter->asyncCallWithArgumentList("SwitcherSet", { arg_0, state });
 }
 
-bool SyncDBusProxy::switcherGet(const QString &arg_0)
+bool SyncDBusProxy::SwitcherGet(const QString &arg_0)
 {
-    QDBusPendingReply<bool> reply = m_syncInner->asyncCallWithArgumentList("SwitcherGet", { arg_0 });
+    QDBusPendingReply<bool> reply = m_syncInter->asyncCallWithArgumentList("SwitcherGet", { arg_0 });
     reply.waitForFinished();
     if (!reply.isValid()) {
         return false;
@@ -54,17 +54,17 @@ bool SyncDBusProxy::switcherGet(const QString &arg_0)
     return reply.value();
 }
 
-QDBusPendingCall SyncDBusProxy::switcherDump()
+QDBusPendingCall SyncDBusProxy::SwitcherDump()
 {
-    return m_syncInner->asyncCall("SwitcherDump");
+    return m_syncInter->asyncCall("SwitcherDump");
 }
 
 qlonglong SyncDBusProxy::lastSyncTime()
 {
-    return m_syncInner->property("LastSyncTime").toLongLong();
+    return m_syncInter->property("LastSyncTime").toLongLong();
 }
 
 IntString SyncDBusProxy::state()
 {
-    return qvariant_cast<IntString>(m_syncInner->property("State"));
+    return qvariant_cast<IntString>(m_syncInter->property("State"));
 }
